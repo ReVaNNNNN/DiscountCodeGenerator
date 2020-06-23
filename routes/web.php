@@ -13,6 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'CodeGeneratorController@show')->name('show_form');
+Route::post('/', 'CodeGeneratorController@create')->name('create_code');

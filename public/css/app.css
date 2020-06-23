@@ -1,7 +1,8 @@
-html, body {
+html,
+body {
   background-color: khaki;
   color: #636b6f;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-weight: 200;
   height: 100vh;
   margin: 0;
@@ -66,7 +67,6 @@ form h3 {
   outline: none;
 }
 
-
 .form button:hover {
   cursor: pointer;
   background-color: #FFF;
@@ -78,3 +78,4 @@ form h3 {
   font-size: 18px;
   font-weight: 700;
 }
+
