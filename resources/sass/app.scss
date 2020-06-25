@@ -66,7 +66,6 @@ form h3 {
   outline: none;
 }
 
-
 .form button:hover {
   cursor: pointer;
   background-color: #FFF;
@@ -77,4 +76,10 @@ form h3 {
 .form label {
   font-size: 18px;
   font-weight: 700;
+}
+
+.form .input-error {
+  color: indianred;
+  font-weight: 700;
+  padding: 10px;
 }

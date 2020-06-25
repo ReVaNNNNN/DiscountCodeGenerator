@@ -9,8 +9,13 @@ interface GeneratorInterface
     /**
      * @param int $codesNumber
      * @param int $codeLength
-     * @param string $fileName
      *
+     * @return void
      */
-    public function generate(int $codesNumber, int $codeLength, string $fileName = 'result.txt');
+    public function generate(int $codesNumber, int $codeLength): void;
+
+    /**
+     * @return array
+     */
+    public function getResult(): array;
 }

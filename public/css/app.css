@@ -79,3 +79,8 @@ form h3 {
   font-weight: 700;
 }
 
+.form .input-error {
+  color: indianred;
+  font-weight: 700;
+}
+

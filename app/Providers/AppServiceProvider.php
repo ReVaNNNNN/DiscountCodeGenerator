@@ -23,6 +23,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->app->bind(
+            'App\Services\DiscountCode\ResultInterface',
+            'App\Services\DiscountCode\FileHandler'
+        );
+
+        $this->app->bind(
+            'App\Services\DiscountCode\GeneratorInterface',
+            'App\Services\DiscountCode\Generator'
+        );
     }
 }

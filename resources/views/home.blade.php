@@ -27,10 +27,19 @@
                         Podaj liczbę kodów:
                     </label>
                     <input name="codesNumber" id="codesNumber" type="number" min="1" step="1" />
+
+                    @if($errors->has('codesNumber'))
+                        <span class="input-error">{{ $errors->first('codesNumber') }}</span>
+                    @endif
+
                     <label htmlFor="codeLength">
                         Podaj długość kodu:
                     </label>
-                    <input name="codeLength" id="codeLength" type="number" min="1" step="1" />
+                    <input name="codeLength" id="codeLength" type="number" min="4" step="1" />
+
+                    @if($errors->has('codeLength'))
+                        <span class="input-error">{{ $errors->first('codeLength') }}</span>
+                    @endif
 
                     <button type="submit">Generuj</button>
                 </form>

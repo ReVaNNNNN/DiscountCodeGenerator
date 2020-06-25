@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\DiscountCodeRequest;
-use App\Services\DiscountCode\DiscountGenerator;
-use Illuminate\Support\Facades\Storage;
+use App\Services\DiscountCode\GeneratorInterface;
+use App\Services\DiscountCode\ResultInterface;
 use Illuminate\View\View;
 
 class CodeGeneratorController extends Controller
@@ -17,21 +17,21 @@ class CodeGeneratorController extends Controller
         return view('home');
     }
 
-    public function create(DiscountCodeRequest $request)
+    /**
+     * @param DiscountCodeRequest $request
+     * @param GeneratorInterface $generator
+     * @param ResultInterface $result
+     *
+     * @return mixed
+     */
+    public function create(DiscountCodeRequest $request, GeneratorInterface $generator, ResultInterface $result)
     {
-        // 1 Walidacja Requesta
-        // 2 Zabezpieczenie przed nieskończoną pętla
-        // 3 Wywołanie generatora poprzez konsolę
-        // 4 Refaktoryzcja kodu
-        // 5 Dokumentacja metod + Readme jak obsłużyć konsolę
-        // 6 Testy jednostkowe ?
-
         $codesNumber = $request->get('codesNumber');
         $codeLength =  $request->get('codeLength');
 
-        $gen = new DiscountGenerator();
-        $gen->generate($codesNumber, $codeLength);
+        $generator->generate($codesNumber, $codeLength);
+        $result->store($generator->getResult());
 
-        return Storage::download('result.txt');
-    }
+        return $result->download();
+     }
 }
