@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Storage;
 
 class FileHandler implements ResultInterface
 {
+    const TEXT_FILE_EXTENSION = '.txt';
+
     /**
      * @param array $data
      * @param string|null $fileName

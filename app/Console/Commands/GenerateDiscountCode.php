@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Services\DiscountCode\FileHandler;
 use App\Services\DiscountCode\GeneratorInterface;
 use App\Services\DiscountCode\ResultInterface;
 use Illuminate\Console\Command;
@@ -105,7 +106,9 @@ class GenerateDiscountCode extends Command
     private function isFileNameInvalid(string $fileName): bool
     {
        if(!$this->isTextFile($fileName)) {
-            $this->error('Filename should have .txt extension !');
+            $this->error(
+                sprintf('Filename should have %s extension !', FileHandler::TEXT_FILE_EXTENSION )
+            );
 
             return true;
        }
@@ -120,7 +123,7 @@ class GenerateDiscountCode extends Command
      */
     private function isTextFile(string $fileName): bool
     {
-        return substr($fileName, -4, 4) === '.txt';
+        return substr($fileName, -4, 4) === FileHandler::TEXT_FILE_EXTENSION;
     }
 
     /**
@@ -128,6 +131,8 @@ class GenerateDiscountCode extends Command
      */
     private function printOutput(string $fileName): void
     {
-        $this->info(sprintf('%sCodes stored in storage\app\\%s', PHP_EOL, $fileName));
+        $this->info(
+            sprintf('%sCodes stored in storage\app\\%s', PHP_EOL, $fileName)
+        );
     }
 }
