@@ -12,5 +12,5 @@
 
 ### Uruchomienie komendy do generowania kodów:
 
-- php artisan generate-discount-codes
-- podaj argumenty o które jesteś proszony
+1 php artisan generate-discount-codes
+2 podaj argumenty o które jesteś proszony
